@@ -2,6 +2,7 @@ package com.spring;
 
 import com.spring.levels.BusinessLogic;
 import com.spring.levels.intro;
+import javafx.application.Application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
