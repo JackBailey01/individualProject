@@ -1,14 +1,14 @@
 <template>
   <div>
     <div>
-      Accounts go here
+      Add
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Accounts',
+  name: 'AddAccount',
   data () {
     return {
     }

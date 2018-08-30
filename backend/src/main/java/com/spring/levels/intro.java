@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("accounts")
+@CrossOrigin("http://localhost:8082")
 public class intro{
 
     @Autowired
