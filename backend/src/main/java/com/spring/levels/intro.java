@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:8081")
 @RequestMapping("accounts")
-@CrossOrigin("http://localhost:8082")
 public class intro{
 
     @Autowired
@@ -29,9 +29,9 @@ public class intro{
     }
 
 
-    @PostMapping("create/{firstName}/{lastName}")
-    public ResponseEntity<String> createAccount(@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName){
-        service.create(firstName,lastName);
+    @PostMapping("create")
+    public ResponseEntity<String> createAccount(@RequestBody String data){
+        service.create(data);
         return new ResponseEntity<>("success", HttpStatus.OK);
 
     }
@@ -42,9 +42,9 @@ public class intro{
 
     }
 
-    @PutMapping("Update/{accNo}/{firstName}/{lastName}")
-    public ResponseEntity<String> updateAccount(@PathVariable("accNo") Integer accNo, @PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName){
-        service.update(accNo,firstName,lastName);
+    @PutMapping("update")
+    public ResponseEntity<String> updateAccount(@RequestBody String data){
+        service.update(data);
         return new ResponseEntity<>("success", HttpStatus.OK);
 
     }

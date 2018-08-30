@@ -1,9 +1,9 @@
 package com.spring.levels;
+import com.google.gson.Gson;
 import com.spring.model.Account;
 import com.spring.model.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 
@@ -13,10 +13,8 @@ public class BusinessLogic implements BusinessService{
     @Autowired
     private AccountRepository dao;
 
-    public void create(String firstName, String lastName){
-        Account account = new Account();
-        account.setFirstName(firstName);
-        account.setLastName(lastName);
+    public void create(String data){
+        Account account = new Gson().fromJson(data, Account.class);
         dao.save(account);
     }
     public void delete(Integer accNo){
@@ -28,10 +26,12 @@ public class BusinessLogic implements BusinessService{
         return account;
 
     }
-    public void update(Integer accNo,String firstName, String lastName){
-        Account account = dao.getById(accNo);
-        account.setFirstName(firstName);
-        account.setLastName(lastName);
+    public void update(String data){
+        Account account = new Gson().fromJson(data, Account.class);
+        int accNo = account.getAccNo();
+        Account account2 = dao.getById(accNo);
+        account2.setFirstName(account.getFirstName());
+        account2.setLastName(account.getLastName());
         dao.save(account);
     }
 
