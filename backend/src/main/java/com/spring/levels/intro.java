@@ -35,11 +35,10 @@ public class intro{
         return new ResponseEntity<>("Account successfully added", HttpStatus.OK);
 
     }
-    @PostMapping("delete")
-    public ResponseEntity<String> delete(@RequestBody String data){
-        service.delete(data);
-        return new ResponseEntity<>("success", HttpStatus.OK);
-
+    @PostMapping("delete/{id}")
+    public ResponseEntity<String> deleteAccount(@PathVariable int id){
+        service.delete(id);
+        return new ResponseEntity<>("Account successfully deleted", HttpStatus.OK);
     }
 
     @PutMapping("update")

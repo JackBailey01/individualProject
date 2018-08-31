@@ -17,8 +17,8 @@ public class BusinessLogic implements BusinessService{
         Account account = new Gson().fromJson(data, Account.class);
         dao.save(account);
     }
-    public void delete(String data){
-        Account account = new Gson().fromJson(data, Account.class);
+    public void delete(int id){
+        Account account = dao.getById(id);
         dao.delete(account);
     }
     public Account view(Integer accNo){

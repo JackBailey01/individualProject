@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="accountlist" >
-      <b-table striped hover :items="accounts" :fields="fields">
+      <b-table striped hover :items="accounts" :fields="fields" id="tableData" >
         <template slot="actions"  slot-scope="data">
-          <b-button type = "button" variant="primary">Edit</b-button>
+          <b-button type = "button" @click.stop="editAccount(data.item)" variant="primary">Edit</b-button>
           <b-button type = "button" @click.stop="deleteAccount(data.item)" variant="danger">Delete</b-button>
         </template>
       </b-table>
@@ -13,6 +13,8 @@
 
 <script>
 import axios from 'axios'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 export default {
   name: 'account-list',
   mounted: function () {
@@ -54,24 +56,23 @@ export default {
           console.log(error)
         })
     },
-    deleteAccount: function(item) {
+    deleteAccount(item) {
       const content = JSON.stringify(item)
-      console.log(content)
-      axios.post('http://localhost:8080/accounts/delete',{
-        headers: {
-          'Access-Control-Allow-Origin': '*'
-        },
-        body:{content}
+      const id = item.accNo
+      axios.post('http://localhost:8080/accounts/delete/'+ id,{
+        content
       })
         .then(function (response){
           alert(response.data);
+          location.reload();
         })
         .catch(function (error) {
           console.log(error);
         });
+    },
+    editAccount (item){
+      this.$router.push({name:'editAccounts', params: {accountToEdit: item}})
     }
-
-
 
   }
 }
