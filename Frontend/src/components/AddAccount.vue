@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <template>
   <div class="center">
     <form id="account-form" @submit="submitAccount">
@@ -22,17 +23,27 @@
 
 <script>
   import axios from 'axios'
-  export default new ({
-    data:{
-      account: []
+  export default ({
+    data() {
+      return {
+        firstName: null,
+        lastName: null
+      }
     },
-
-    submitAccount: function () {
-      axios.post('http://localhost:8080/account/create', {
-        firstName: '' + this.data.firstName,
-        lastName: '' + this.data.lastName
+methods: {
+  submitAccount: function () {
+    axios.post('http://localhost:8080/accounts/create', {
+      firstName: '' + this.firstName,
+      lastName: '' + this.lastName
+    })
+      .then(function (response){
+        alert(response.data);
       })
-    }
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+}
   })
 </script>
 

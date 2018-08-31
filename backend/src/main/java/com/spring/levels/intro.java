@@ -32,12 +32,12 @@ public class intro{
     @PostMapping("create")
     public ResponseEntity<String> createAccount(@RequestBody String data){
         service.create(data);
-        return new ResponseEntity<>("success", HttpStatus.OK);
+        return new ResponseEntity<>("Account successfully added", HttpStatus.OK);
 
     }
-    @DeleteMapping("delete/{accNo}")
-    public ResponseEntity<String> delete(@PathVariable("accNo") Integer AccNo){
-        service.delete(AccNo);
+    @PostMapping("delete")
+    public ResponseEntity<String> delete(@RequestBody String data){
+        service.delete(data);
         return new ResponseEntity<>("success", HttpStatus.OK);
 
     }

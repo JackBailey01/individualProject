@@ -1,7 +1,12 @@
 <template>
   <div>
     <div class="accountlist" >
-      <b-table striped hover :items="accounts"></b-table>
+      <b-table striped hover :items="accounts" :fields="fields">
+        <template slot="actions"  slot-scope="data">
+          <b-button type = "button" variant="primary">Edit</b-button>
+          <b-button type = "button" @click.stop="deleteAccount(data.item)" variant="danger">Delete</b-button>
+        </template>
+      </b-table>
     </div>
   </div>
 </template>
@@ -12,17 +17,33 @@ export default {
   name: 'account-list',
   mounted: function () {
     this.getAccounts()
-    console.log('mounted: got here')
   },
   data: function () {
     return {
-      accounts: []
+      accounts: [],
+      fields:{
+        accNo: {
+          label: 'AccNo',
+          sortable: true
+        },
+        firstName: {
+          label: 'First Name',
+          sortable: true
+        },
+        lastName: {
+          label: 'last Name',
+          sortable: true
+        },
+        actions: {
+
+        }
+
+      }
     }
   },
   methods: {
     getAccounts: function () {
       var self = this
-      console.log('here')
       const url = 'http://localhost:8080/accounts/viewAll'
       axios.get(url)
         .then(function (response) {
@@ -32,7 +53,26 @@ export default {
         .catch(function (error) {
           console.log(error)
         })
+    },
+    deleteAccount: function(item) {
+      const content = JSON.stringify(item)
+      console.log(content)
+      axios.post('http://localhost:8080/accounts/delete',{
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        },
+        body:{content}
+      })
+        .then(function (response){
+          alert(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
+
+
+
   }
 }
 </script>

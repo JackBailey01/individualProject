@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface BusinessService {
     Account view(Integer id);
-    void delete(Integer AccNo);
+    void delete(String data);
     void create(String data);
     void update(String data);
     List<Account> getAllAccounts();
