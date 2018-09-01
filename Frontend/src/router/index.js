@@ -16,7 +16,7 @@ export default new Router({
     },
     {
       path: '/findAccounts',
-      name: 'Accounts',
+      name: 'findAccounts',
       component: Accounts
     },
     {
@@ -25,7 +25,7 @@ export default new Router({
       component: addAccounts
     },
     {
-      path: '/editAccounts/:item',
+      path: '/editAccounts',
       name: 'editAccounts',
       component: editaccount,
     }

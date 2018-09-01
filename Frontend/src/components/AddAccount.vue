@@ -43,7 +43,7 @@ methods: {
         console.log(error);
       });
   }
-}
+  }
   })
 </script>
 
