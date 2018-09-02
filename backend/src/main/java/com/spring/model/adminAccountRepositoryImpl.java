@@ -16,8 +16,14 @@ public class adminAccountRepositoryImpl implements adminAccountRepository {
 
     @Override
     public adminAccount login(String userName, String password){
-        TypedQuery<adminAccount> query = entityManager.createQuery("SELECT m FROM adminAccount m WHERE m.UserName='"+ userName +"' AND m.Password = '"+ password +"'" , adminAccount.class);
-        adminAccount account = (adminAccount) query.getSingleResult();
-        return account;
+        try {
+            TypedQuery<adminAccount> query = entityManager.createQuery("SELECT m FROM adminAccount m WHERE m.UserName='" + userName + "' AND m.Password = '" + password + "'", adminAccount.class);
+            adminAccount account = (adminAccount) query.getSingleResult();
+            return account;
+        }
+        catch(Exception a){
+            adminAccount account= new adminAccount();
+            return account;
+        }
     }
 }

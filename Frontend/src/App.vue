@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div v-if="['login'].indexOf($route.name)">
     <b-navbar toggleable="md" type="dark" variant="info">
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
       <b-navbar-brand>AccountApp</b-navbar-brand>
@@ -14,14 +15,16 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+    </div>
     <router-view/>
-  </div>
+    </div>
+
 </template>
 
 <script>
 
 export default {
-  name: 'app'
+  name: 'app',
 }
 
 </script>

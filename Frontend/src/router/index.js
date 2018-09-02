@@ -9,10 +9,10 @@ import login from '../components/Login'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
+routes: [
     {
       path: '/dashboard',
-      name: 'Dashboard',
+      name: 'dashboard',
       component: Dashboard
     },
     {

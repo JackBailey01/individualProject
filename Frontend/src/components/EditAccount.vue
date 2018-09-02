@@ -1,6 +1,6 @@
 <template>
   <div class="centre">
-    <form id="account-form" @submit="submitSearch">
+    <form id="account-form" @submit="submitUpdate">
       <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6">
           <div class="form-group">

@@ -43,7 +43,7 @@
         Password: '' + this.Password
       })
         .then(function (response){
-          if (response.data==="") {
+          if (response.data.accNo===null) {
             alert("There is no account with that username and password")
           }
           else{
