@@ -1,5 +1,6 @@
 package com.spring.levels;
 import com.spring.model.Account;
+import com.spring.model.adminAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,14 @@ public class intro{
         Account account = service.view(accNo);
         return new ResponseEntity<>(account, HttpStatus.OK);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<adminAccount> viewAccount(@RequestBody String data){
+        adminAccount account = service.checklogin(data);
+        return new ResponseEntity<>(account, HttpStatus.OK);
+    }
+
+
 
     @GetMapping("viewAll")
     public ResponseEntity<List<Account>> viewAll(){

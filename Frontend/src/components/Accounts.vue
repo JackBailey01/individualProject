@@ -1,5 +1,5 @@
-<template xmlns:visibility="http://www.w3.org/1999/xhtml">
-  <div class="center">
+<template>
+  <div class="centre">
     <form id="account-form" @submit="submitSearch">
       <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6">
@@ -14,11 +14,11 @@
     </form>
         <div class="hide">
           <label v-if="show">First Name</label>
-            <input type="text" v-model="firstName" ref="vis" id="first_name" class="form-control input-sm" placeholder="First Name" v-if="show">
+            <input type="text" v-model="firstName" ref="vis" id="first_name" class="form-control input-sm" placeholder="First Name" v-if="show" readonly>
         </div>
         <div class="hide">
           <label v-if="show">Last Name</label>
-          <input type="text"  v-model="lastName" ref="vis" id="last_name" class="form-control input-sm" placeholder="Last Name" v-if="show">
+          <input type="text"  v-model="lastName" ref="vis" id="last_name" class="form-control input-sm" placeholder="Last Name" v-if="show" readonly>
       </div>
   </div>
 </template>
@@ -58,7 +58,7 @@
 </script>
 
 <style scoped>
-  .center {
+  .centre {
     margin: auto;
     width: 60%;
     padding: 10px;

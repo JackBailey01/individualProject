@@ -1,6 +1,6 @@
 <!--suppress ALL -->
 <template>
-  <div class="center">
+  <div class="centre">
     <form id="account-form" @submit="submitAccount">
       <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6">
@@ -48,7 +48,7 @@ methods: {
 </script>
 
 <style scoped>
-  .center {
+  .centre {
     margin: auto;
     width: 60%;
     padding: 10px;

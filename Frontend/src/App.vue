@@ -5,11 +5,12 @@
       <b-navbar-brand>AccountApp</b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
-          <b-nav-item><router-link style="color:white !important" to="/">Dashboard</router-link></b-nav-item>
+          <b-nav-item><router-link style="color:white !important" to="/Dashboard">Dashboard</router-link></b-nav-item>
           <b-nav-item-dropdown text="Accounts">
             <b-dropdown-item><router-link style="color:black !important" to="/findAccounts">Get Account</router-link></b-dropdown-item>
             <b-dropdown-item><router-link style="color:black !important" to="/AddAccounts">Add Account</router-link></b-dropdown-item>
           </b-nav-item-dropdown>
+          <b-nav-item><router-link class="left" style="color:white !important" to="/">LogOut</router-link></b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -26,5 +27,8 @@ export default {
 </script>
 
 <style>
-
+.left {
+  position: absolute;
+  right: 20px;
+}
 </style>

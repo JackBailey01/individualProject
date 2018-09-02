@@ -4,15 +4,21 @@ import Dashboard from '../components/Dashboard'
 import Accounts from '../components/Accounts'
 import addAccounts from '../components/AddAccount'
 import editaccount from '../components/EditAccount'
+import login from '../components/Login'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard
+    },
+    {
+      path: '/',
+      name: 'login',
+      component: login
     },
     {
       path: '/findAccounts',

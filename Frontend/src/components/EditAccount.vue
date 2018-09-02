@@ -1,6 +1,6 @@
 <template>
-  <div class="center">
-    <form id="account-form" @submit="submitUpdate">
+  <div class="centre">
+    <form id="account-form" @submit="submitSearch">
       <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6">
           <div class="form-group">
@@ -59,7 +59,7 @@
       })
         .then(function (response){
           alert(response.data);
-          self.$router.push('/')
+          self.$router.push('/dashboard')
         })
         .catch(function (error) {
           console.log(error);
@@ -71,7 +71,7 @@
 
 
 <style scoped>
-  .center {
+  .centre {
     margin: auto;
     width: 60%;
     padding: 10px;
